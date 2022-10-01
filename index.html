@@ -5,8 +5,24 @@
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" type="text/css" href="styles.css" />
+        <script src="script.js" defer></script>
     </head>
     <body>
-       <p>hello world</p>
+       <div class="container">
+            <div class="terminal">
+                <div id="toolbar" class="toolbar">
+                    <ul>
+                        <li class="red"><span class="red">x</span></li>
+                        <li class="yellow"><span class="yellow">-</span></li>
+                        <li class="green"><span class="green">+</span></li>
+                    </ul>
+                </div>
+                <div class="inner">
+                    <p id="date"></p>
+                    <br>
+                    <p>Welcome! Type 'help' to see available commands.</p>
+                </div>
+            </div>
+       </div>
     </body>
 </html>
