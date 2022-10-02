@@ -12,17 +12,27 @@
             <div class="terminal">
                 <div id="toolbar" class="toolbar">
                     <ul>
-                        <li class="red"><span class="red">x</span></li>
-                        <li class="yellow"><span class="yellow">-</span></li>
-                        <li class="green"><span class="green">+</span></li>
+                        <li class="red"><span class="red"> </span></li>
+                        <li class="yellow"><span class="yellow"> </span></li>
+                        <li class="green"><span class="green"> </span></li>
                     </ul>
                 </div>
-                <div class="inner">
-                    <p id="date"></p>
+                <div id="message" class="message">
+                    <div id="date"></div>
                     <br>
-                    <p>Welcome! Type 'help' to see available commands.</p>
+                    <div>Welcome! Type 'help' to see available commands.</div>
+                </div>
+                <div id="insert" class="dynamic-content">
+                    <div id="shell">
+                        <label for="command-input" class="root inline">root@liza-strong $ </label>
+                        <input id="command-input" class="command inline" type="text" autofocus>
+                    </div>
                 </div>
             </div>
        </div>
+
+       <footer>
+        <p>made with 🍑 from tallinn, estonia</p>
+    </footer>
     </body>
 </html>
