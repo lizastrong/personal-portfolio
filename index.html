@@ -1,38 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Liza Strong</title>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" type="text/css" href="styles.css" />
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-       <div class="container">
-            <div class="terminal">
-                <div id="toolbar" class="toolbar">
-                    <ul>
-                        <li class="red"><span class="red"> </span></li>
-                        <li class="yellow"><span class="yellow"> </span></li>
-                        <li class="green"><span class="green"> </span></li>
-                    </ul>
-                </div>
+
+<head>
+    <title>Liza Strong</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="terminal" class="terminal">
+            <div id="toolbar" class="toolbar">
+                <ul>
+                    <li class="red"></li>
+                    <li class="yellow"></li>
+                    <li class="green"></li>
+                </ul>
+            </div>
+            <div class="scroll">
                 <div id="message" class="message">
                     <div id="date"></div>
                     <br>
-                    <div>Welcome! Type 'help' to see available commands.</div>
+                    <div id="message">Welcome! Type <span class='help'></span> to see available commands.</div>
                 </div>
                 <div id="insert" class="dynamic-content">
                     <div id="shell">
-                        <label for="command-input" class="root inline">root@liza-strong $ </label>
+                        <label for="command-input" class="root inline"><span class="tag">root</span>@liza-strong $
+                        </label>
                         <input id="command-input" class="command inline" type="text" autofocus>
                     </div>
                 </div>
             </div>
-       </div>
+        </div>
+    </div>
 
-       <footer>
-        <p>made with 🍑 from tallinn, estonia</p>
+    <footer>
+        <p id="restore" class="restore">restore</p>
+        <p class="note">made with 🍑 from tallinn, estonia</p>
     </footer>
-    </body>
+</body>
+
 </html>
