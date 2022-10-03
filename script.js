@@ -34,23 +34,23 @@ const commandInput = (event) => {
         event.target.removeEventListener('keypress', commandInput);
         if (event.target.value.toLowerCase() === 'help') {
             showHelp();
-        } else if (event.target.value === 'about'){
+        } else if (event.target.value === 'about') {
             showAbout();
-        } else if (event.target.value === 'projects') {
-            showProjects();
         } else if (event.target.value === 'contact') {
             showContact();
         } else if (event.target.value === 'cls') {
             clearTerminal();
         } else if (event.target.value === 'exit') {
             exitTerminal();
+        } else if (event.target.value === 'skills') {
+            showSkills();
         } else {
             invalidInput(event.target.value);
         };
-    const blankShell = createNewShell();
-    insert.appendChild(blankShell);
-    shellFocus();
-    blankShell.addEventListener('keypress', commandInput);
+        const blankShell = createNewShell();
+        insert.append(blankShell);
+        shellFocus();
+        blankShell.addEventListener('keypress', commandInput);
     }
 };
 
@@ -67,7 +67,7 @@ const invalidInput = (invalidCommand) => {
                             </p>
                         </div>`;
     error.innerHTML = errorInner;
-    insert.appendChild(error);
+    insert.append(error);
 }
 
 
@@ -78,12 +78,11 @@ const showHelp = () => {
                     Type <span class='clear'>'cls'</span> to clear or type <span class='exit'>'exit'</span> to close terminal.</p>
                     <ul class='commandList'>
                         <li class='item'>about</li>
-                        <li class='item'>projects</li>
                         <li class='item'>skills</li>
                         <li class='item'>contact</li>
                     </ul>`;
     help.innerHTML = helpInner;
-    insert.appendChild(help);
+    insert.append(help);
 }
 
 const showAbout = () => {
@@ -98,20 +97,25 @@ const showAbout = () => {
     insert.append(about);
 };
 
-const showProjects = () => {
-    insert.append(document.createElement('h2'))
-};
+const showSkills = () => {
+    const skills = document.createElement('div');
+    skills.id = 'skills';
+    const skillsInner = `<p><span id='skill'>core: </span>HTML, CSS, JavaScript</p>
+                         <p><span id='skill'>frameworks: </span>React</p>
+                         <p><span id='skill'>database: </span>SQL</p>
+                         <p><span id='skill'>other: </span>Git, GitHub, Figma, MATLAB</p>`;
+    skills.innerHTML = skillsInner;
+    insert.append(skills);
+}
 
 const showContact = () => {
     const contact = document.createElement('div');
     contact.id = 'contact';
-    const contactInner = `<p>
-                            <ul>
-                                <li class='contact'><a href="mailto:lizastrong14@gmail.com?subject=hey you up? 👅 💦'">lizastrong14@gmail.com</a></li>
-                                <li class='contact'><a href='https://github.com/lizastrong' target='_blank'>GitHub</a></li>
-                                <li class='contact'><a href='https://linkedin.com/in/liza-strong' target='_blank'>LinkedIn</a></li>
-                            </ul>
-                          </p>`;
+    const contactInner = `<ul>
+                            <li class='contact'><a href="mailto:lizastrong14@gmail.com?subject=hey you up? 👅 💦'">lizastrong14@gmail.com</a></li>
+                            <li class='contact'><a href='https://github.com/lizastrong' target='_blank'>GitHub</a></li>
+                            <li class='contact'><a href='https://linkedin.com/in/liza-strong' target='_blank'>LinkedIn</a></li>
+                          </ul>`;
     contact.innerHTML = contactInner;
     insert.append(contact);
 };
@@ -126,7 +130,7 @@ const restoreTerminal = () => {
     terminal.style.display = "block";
     insert.innerHTML = "";
     const blankShell = createNewShell();
-    insert.appendChild(blankShell);
+    insert.append(blankShell);
     shellFocus();
     blankShell.addEventListener('keypress', commandInput);
 }
