@@ -5,12 +5,15 @@ document.getElementById('date').innerHTML = `Last login: ${date}`;
 // get shell and insert elements
 const shell = document.getElementById('shell');
 const insert = document.getElementById('insert');
+const terminal = document.getElementById('terminal');
+const restore = document.getElementById('restore');
+const message = document.getElementById('message');
 
 
 function createNewShell() {
     const newShell = document.createElement('div');
     newShell.id = 'shell';
-    const innerShell = `<label for='command-input' class='root inline'>root@liza-strong $ </label>
+    const innerShell = `<label for='command-input' class='root inline'><span class='tag'>root</span>@liza-strong $ </label>
                         <input id='command-input' class='command inline' type='text' autofocus>`
     newShell.innerHTML = innerShell;
     return newShell;
@@ -29,7 +32,7 @@ const commandInput = (event) => {
         event.target.disabled = true;
         event.target.style.opacity = 0.75;
         event.target.removeEventListener('keypress', commandInput);
-        if (event.target.value === 'help') {
+        if (event.target.value.toLowerCase() === 'help') {
             showHelp();
         } else if (event.target.value === 'about'){
             showAbout();
@@ -42,7 +45,7 @@ const commandInput = (event) => {
         } else if (event.target.value === 'exit') {
             exitTerminal();
         } else {
-            invalidInput();
+            invalidInput(event.target.value);
         };
     const blankShell = createNewShell();
     insert.appendChild(blankShell);
@@ -50,6 +53,23 @@ const commandInput = (event) => {
     blankShell.addEventListener('keypress', commandInput);
     }
 };
+
+
+const invalidInput = (invalidCommand) => {
+    const error = document.createElement('div');
+    error.id = 'error';
+    const errorInner = `<div id='error'>
+                            <p>
+                                <span class='errorName'>Error : InvalidCommand  ->  </span>
+                                <span class='phrase'>'${invalidCommand}': command not found.</span>
+                                <br>
+                                Type <span class='help'>'help'</span> for available commands.
+                            </p>
+                        </div>`;
+    error.innerHTML = errorInner;
+    insert.appendChild(error);
+}
+
 
 const showHelp = () => {
     const help = document.createElement('div');
@@ -59,6 +79,7 @@ const showHelp = () => {
                     <ul class='commandList'>
                         <li class='item'>about</li>
                         <li class='item'>projects</li>
+                        <li class='item'>skills</li>
                         <li class='item'>contact</li>
                     </ul>`;
     help.innerHTML = helpInner;
@@ -66,7 +87,15 @@ const showHelp = () => {
 }
 
 const showAbout = () => {
-    insert.append(document.createElement('h1'));
+    const about = document.createElement('div');
+    about.id = 'about';
+    const aboutInner = `<p>Hey hey 👋<br>I'm <span class='name'>Liza</span>!
+                        I am 22 and I'm an aspiring full-stack web developer.<br>
+                        I recently graduated 🎓 from UCLA with a B.S. in 🧠 Psychobiology. 
+                        I love coding, travelling, eating good food, and 🧶 crocheting.<br>
+                        I am currently living abroad in 📍 Tallinn, Estonia 🇪🇪.<br></p>`;
+    about.innerHTML = aboutInner;
+    insert.append(about);
 };
 
 const showProjects = () => {
@@ -74,19 +103,40 @@ const showProjects = () => {
 };
 
 const showContact = () => {
-    insert.append(document.createElement('h3'))
+    const contact = document.createElement('div');
+    contact.id = 'contact';
+    const contactInner = `<p>
+                            <ul>
+                                <li class='contact'><a href="mailto:lizastrong14@gmail.com?subject=hey you up? 👅 💦'">lizastrong14@gmail.com</a></li>
+                                <li class='contact'><a href='https://github.com/lizastrong' target='_blank'>GitHub</a></li>
+                                <li class='contact'><a href='https://linkedin.com/in/liza-strong' target='_blank'>LinkedIn</a></li>
+                            </ul>
+                          </p>`;
+    contact.innerHTML = contactInner;
+    insert.append(contact);
 };
 
 const clearTerminal = () => {
-
+    message.style.display = 'none';
+    insert.innerHTML = "";
 };
+
+const restoreTerminal = () => {
+    restore.style.display = "none";
+    terminal.style.display = "block";
+    insert.innerHTML = "";
+    const blankShell = createNewShell();
+    insert.appendChild(blankShell);
+    shellFocus();
+    blankShell.addEventListener('keypress', commandInput);
+}
 
 const exitTerminal = () => {
-
+    terminal.style.display = "none";
+    restore.style.display = "block";
+    restore.addEventListener('click', restoreTerminal);
 };
 
-const invalidInput = () => {
 
-};
 
 document.getElementById('command-input').addEventListener('keypress', commandInput);
