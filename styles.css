@@ -3,11 +3,13 @@
   src: url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
 }
 
-html *, body * {
+html *,
+body * {
   margin: 0;
 }
 
-html, body {
+html,
+body {
   background-color: rgb(0, 0, 0);
   font-family: 'PT Mono';
   font-weight: bold;
@@ -22,13 +24,15 @@ html, body {
   justify-content: center;
   align-items: center;
   padding-top: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .terminal {
-  background-color:black;
+  background-color: black;
   box-shadow: 10px;
   border: 1px solid rgb(118, 118, 118);
-  /* box-shadow: 8px 8px rgb(255, 0, 179); */
+  box-shadow: 8px 8px rgb(118, 118, 118);
   border-radius: 10px;
   height: 410px;
   width: 735px;
@@ -51,7 +55,7 @@ html, body {
 }
 
 .scroll {
-  position:relative;
+  position: relative;
   overflow-y: scroll;
   max-height: 90%;
   padding: 5px;
@@ -94,7 +98,7 @@ html, body {
 }
 
 .name {
-  color:rgb(254, 0, 135);
+  color: rgb(254, 0, 135);
 }
 
 .message {
@@ -122,7 +126,7 @@ html, body {
   font-family: 'PT Mono', monospace;
   font-weight: bold;
   caret-color: rgb(255, 0, 179);
-  color:rgb(254, 0, 135)
+  color: rgb(254, 0, 135)
 }
 
 #insert input:focus {
@@ -145,7 +149,7 @@ html, body {
 }
 
 .help {
-  color:cornflowerblue;
+  color: cornflowerblue;
 }
 
 .errorName {
@@ -155,23 +159,23 @@ html, body {
 
 .commandList {
   list-style: none;
-  color:rgb(255, 0, 179);
+  color: rgb(255, 0, 179);
 }
 
 .item {
-  color:rgb(255, 0, 179);
+  color: rgb(255, 0, 179);
   font-size: 14px;
   padding: 3px;
 }
 
 .item::before {
   content: '> ';
-  color:rgb(255, 0, 179);
+  color: rgb(255, 0, 179);
   font-size: 14px;
 }
 
 .contact a {
-  color:rgb(255, 83, 71);
+  color: rgb(255, 83, 71);
   text-decoration: none;
 }
 
@@ -181,21 +185,29 @@ html, body {
 }
 
 .contact a:hover {
-  color:aquamarine;
+  color: aquamarine;
 }
 
 .contact::before {
   content: '> ';
-  color:rgb(255, 83, 71);
+  color: rgb(255, 83, 71);
 }
 
+
+#skill {
+  color: rgb(255, 191, 0)
+}
+
+#skills {
+  margin-left: 40px;
+}
 
 .note {
   font-size: 12px;
   position: absolute;
   bottom: 10px;
   right: 10px;
-  color:rgb(255, 83, 71)
+  color: rgb(255, 83, 71)
 }
 
 #restore {
@@ -208,8 +220,6 @@ html, body {
 }
 
 #restore:hover {
-  color:rgb(43, 184, 0);
+  color: rgb(43, 184, 0);
   cursor: pointer;
 }
-
-
