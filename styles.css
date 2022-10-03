@@ -28,15 +28,15 @@ html, body {
   background-color:black;
   box-shadow: 10px;
   border: 1px solid rgb(118, 118, 118);
-  box-shadow: 10px 10px rgb(255, 0, 179);
+  /* box-shadow: 8px 8px rgb(255, 0, 179); */
   border-radius: 10px;
   height: 410px;
   width: 735px;
-  overflow-y: auto;
-  letter-spacing: 2.25;
+  position: relative;
 }
 
 .toolbar {
+  background-color: black;
   border-bottom: 1px solid rgb(118, 118, 118);
   height: 8%;
   width: 100%;
@@ -46,6 +46,15 @@ html, body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  position: sticky;
+  z-index: 999;
+}
+
+.scroll {
+  position:relative;
+  overflow-y: scroll;
+  max-height: 90%;
+  padding: 5px;
 }
 
 .toolbar ul {
@@ -84,13 +93,23 @@ html, body {
   background-color: rgb(43, 184, 0);
 }
 
+.name {
+  color:rgb(254, 0, 135);
+}
+
 .message {
   color: white;
-  padding-left: 3px;
   font-size: 14px;
   margin: 0;
 }
 
+.tag {
+  color: lime;
+}
+
+.root {
+  color: blueviolet;
+}
 
 .inline {
   display: inline-block;
@@ -103,7 +122,7 @@ html, body {
   font-family: 'PT Mono', monospace;
   font-weight: bold;
   caret-color: rgb(255, 0, 179);
-  color:rgb(43, 184, 0)
+  color:rgb(254, 0, 135)
 }
 
 #insert input:focus {
@@ -113,12 +132,9 @@ html, body {
 
 #insert {
   color: white;
-  padding-left: 3px;
-  padding-top: 5px;
   font-size: 14px;
   margin: 0;
 }
-
 
 .clear {
   color: aqua;
@@ -128,11 +144,18 @@ html, body {
   color: red;
 }
 
+.help {
+  color:cornflowerblue;
+}
+
+.errorName {
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+}
+
 .commandList {
-  display: flex;
-  flex-direction: column;
   list-style: none;
-  color:rgb(255, 0, 179)
+  color:rgb(255, 0, 179);
 }
 
 .item {
@@ -147,13 +170,46 @@ html, body {
   font-size: 14px;
 }
 
+.contact a {
+  color:rgb(255, 83, 71);
+  text-decoration: none;
+}
 
-footer {
+.contact {
+  list-style: none;
+  padding: 3px;
+}
+
+.contact a:hover {
+  color:aquamarine;
+}
+
+.contact::before {
+  content: '> ';
+  color:rgb(255, 83, 71);
+}
+
+
+.note {
   font-size: 12px;
   position: absolute;
   bottom: 10px;
   right: 10px;
   color:rgb(255, 83, 71)
+}
+
+#restore {
+  font-size: 12px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  display: none;
+}
+
+#restore:hover {
+  color:rgb(43, 184, 0);
+  cursor: pointer;
 }
 
 
