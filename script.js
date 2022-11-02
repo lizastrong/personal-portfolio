@@ -101,8 +101,8 @@ const showSkills = () => {
     const skills = document.createElement('div');
     skills.id = 'skills';
     const skillsInner = `<p><span id='skill'>core: </span>HTML, CSS, JavaScript</p>
-                         <p><span id='skill'>frameworks: </span>React</p>
-                         <p><span id='skill'>database: </span>SQL</p>
+                         <p><span id='skill'>frameworks: </span>React, Redux</p>
+                         <p><span id='skill'>database: </span>SQL, Postgres, Supabase</p>
                          <p><span id='skill'>other: </span>Git, GitHub, Figma, MATLAB</p>`;
     skills.innerHTML = skillsInner;
     insert.append(skills);
