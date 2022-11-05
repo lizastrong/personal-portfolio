@@ -102,6 +102,7 @@ const showSkills = () => {
     skills.id = 'skills';
     const skillsInner = `<p><span id='skill'>core: </span>HTML, CSS, JavaScript</p>
                          <p><span id='skill'>languages: </span>Node.js</p>
+                         <p><span id='skill'>libraries: </span>Express.js</p>
                          <p><span id='skill'>frameworks: </span>React, Redux, Next.js</p>
                          <p><span id='skill'>database: </span>SQL, Postgres, Supabase</p>
                          <p><span id='skill'>other: </span>Git, GitHub, Figma, MATLAB, Wagmi, Vercel</p>`;
